@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
+import { ClerkProvider } from "@clerk/nextjs";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
   title: "Arresto Momentum",
   description: "Arresto Momentum is an event management platform that helps you organize and manage your events with ease. Create, promote, and manage your events all in one place.",
   icons: {
-    icon: "assets/images/logo.png",
+    icon: "/images/logo.svg",
   }
 };
 
@@ -23,8 +24,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${poppins.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col">{children}</body>
-    </html>
+    <ClerkProvider>
+      <html lang="en" className={`${poppins.variable} h-full antialiased`} suppressHydrationWarning>
+        <body className="min-h-full flex flex-col">{children}</body>
+      </html>
+    </ClerkProvider>
   );
 }
