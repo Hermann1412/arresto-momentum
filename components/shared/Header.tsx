@@ -3,6 +3,7 @@ import Link from 'next/link'
 import React from 'react'
 import { Button } from '../ui/button'
 import { auth } from '@clerk/nextjs/server'
+import { UserButton } from '@clerk/nextjs'
 
 const Header = async () => {
   const { userId } = await auth()
@@ -17,7 +18,9 @@ const Header = async () => {
         </Link>
 
         <div className="flex w-32 justify-end gap-3">
-          {!userId && (
+          {userId ? (
+            <UserButton />
+          ) : (
             <Button asChild className="rounded-full" size="lg">
               <Link href="/sign-in">Login</Link>
             </Button>
