@@ -4,6 +4,8 @@ import React from 'react'
 import { Button } from '../ui/button'
 import { auth } from '@clerk/nextjs/server'
 import { UserButton } from '@clerk/nextjs'
+import Navitems from './Navitems'
+import MobileNav from './MobileNav'
 
 const Header = async () => {
   const { userId } = await auth()
@@ -17,9 +19,18 @@ const Header = async () => {
             alt="Arresto Momentum logo" />
         </Link>
 
+        {userId && (
+          <nav className="hidden md:flex items-center justify-between w-full max-w-xs">
+            <Navitems />
+          </nav>
+        )}
+
         <div className="flex w-32 justify-end gap-3">
           {userId ? (
-            <UserButton />
+            <>
+              <UserButton />
+              <MobileNav />
+            </>
           ) : (
             <Button asChild className="rounded-full" size="lg">
               <Link href="/sign-in">Login</Link>

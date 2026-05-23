@@ -88,4 +88,26 @@
     background-image: radial-gradient(circle, rgba(0, 0, 0, 0.12) 1px, transparent 1px);
     background-size: 20px 20px;
   }
+
+  .flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .p-medium-16 {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+  }
+
+  .text-primary-500 {
+    color: hsl(222.2 47.4% 50%);
+  }
 }

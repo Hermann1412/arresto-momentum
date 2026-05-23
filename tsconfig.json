@@ -19,7 +19,8 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "@constants": ["./constants/index.ts"]
     }
   },
   "include": [
