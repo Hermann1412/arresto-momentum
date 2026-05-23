@@ -18,7 +18,7 @@ const Header = async () => {
 
         <div className="flex w-32 justify-end gap-3">
           {!userId && (
-            <Button asChild className="rounded-4" size="lg">
+            <Button asChild className="rounded-full" size="lg">
               <Link href="/sign-in">Login</Link>
             </Button>
           )}
